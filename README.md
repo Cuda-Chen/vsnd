@@ -53,6 +53,37 @@ card 0: vsnd [vsnd], device 0: vsnd PCM [vsnd PCM]
 
 See [scripts/verify.sh](scripts/verify.sh) for automated test.
 
+### Close the module
+- https://stackoverflow.com/a/26860566
+- https://askubuntu.com/a/1226710
+- https://rastating.github.io/setting-default-audio-device-in-ubuntu-18-04/
+
+```
+Card #3
+        Name: alsa_card.platform-vsnd.0
+        Driver: module-alsa-card.c
+        Owner Module: 28
+        Properties:
+                alsa.card = "1"
+                alsa.card_name = "vsnd"
+                alsa.long_card_name = "vsnd1"
+                alsa.driver_name = "vsnd"
+                device.bus_path = "platform-vsnd.0"
+                sysfs.path = "/devices/platform/vsnd.0/sound/card1"
+                device.form_factor = "internal"
+                device.string = "1"
+                device.description = "Built-in Audio"
+                module-udev-detect.discovered = "1"
+                device.icon_name = "audio-card"
+        Profiles:
+                output:mono-fallback: Mono Output (sinks: 1, sources: 0, priority: 100, available: yes)
+                off: Off (sinks: 0, sources: 0, priority: 0, available: yes)
+        Active Profile: output:mono-fallback
+        Ports:
+                analog-output: Analog Output (type: Analog, priority: 9900, latency offset: 0 usec, availability unknown)
+                        Part of profile(s): output:mono-fallback
+```
+
 ## License
 `vsnd`is released under the MIT license. Use of this source code is governed by
 a MIT-style license that can be found in the LICENSE file.

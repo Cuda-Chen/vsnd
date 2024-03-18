@@ -518,11 +518,14 @@ static void vsnd_unregister_all(void)
 {
     int i;
 
+    pr_info("start to unregister vsnd components");
     for (i = 0; i < ARRAY_SIZE(devices); ++i) {
         if (devices[i])
             platform_device_unregister(devices[i]);
     }
+    pr_info("end to unregister vsnd components");
 
+    pr_info("start to unregister vsnd driver");
     platform_driver_unregister(&vsnd_driver);
 }
 
@@ -574,6 +577,8 @@ static int __init vsnd_init(void)
         vsnd_unregister_all();
         return -ENODEV;
     }
+
+    pr_info("Succeeded to load vsnd");
 
     return 0;
 }
